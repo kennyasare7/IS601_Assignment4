@@ -259,3 +259,20 @@ class PowerCalculation(Calculation):
     def execute(self) -> float:
         # Calls the multiplication method from the Operation module to perform the multiplication.
         return Operation.power(self.a, self.b) # pragma: no cover
+    
+@CalculationFactory.register_calculation('modulus')
+class ModulusCalculation(Calculation):
+    """
+    ModulusCalculation represents a modulus (remainder) operation.
+    
+    **Special Case - Modulus by Zero**: Modulus requires extra error handling to 
+    prevent dividing by zero, which would cause an error in the program. This class 
+    checks if the second operand is zero before performing the operation.
+    """
+
+    def execute(self) -> float:
+        # Before performing modulus, check if `b` is zero to avoid ZeroDivisionError.
+        if self.b == 0:
+            raise ZeroDivisionError("Cannot perform modulus by zero.")
+        # Calls the modulus method from the Operation module to perform the calculation.
+        return Operation.modulus(self.a, self.b)

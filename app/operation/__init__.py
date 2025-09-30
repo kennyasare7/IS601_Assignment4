@@ -155,4 +155,25 @@ class Operation:
           the methods easily reusable in other parts of the program.
         """
         return a ** b  # Raises 'a' to the power of 'b' and returns the result.
+
+    @staticmethod
+    def modulus(a: float, b: float) -> float:
+        """
+        Returns the remainder of dividing `a` by `b`.
+
+        **Parameters:**
+        - `a (float)`: The dividend.
+        - `b (float)`: The divisor.
+        
+        **Returns:**
+        - `float`: The remainder of `a` divided by `b`.
+
+        **Example:**
+        >>> Operation.modulus(10, 3)
+        1.0
+        """
+        if b == 0:
+          raise ZeroDivisionError("Cannot perform modulus by zero.")
+        return a % b  # Returns the remainder of 'a' divided by 'b'.
+        
     
