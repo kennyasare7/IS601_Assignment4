@@ -34,7 +34,7 @@ Usage:
         multiply  : Multiplies two numbers.
         divide    : Divides the first number by the second.
         power     : Raises the first number to the power of the second.
-        modulus   : Computes the modulus of the first number by the second.:
+        modulus   : Computes the modulus of the first number by the second.
 Special Commands:
     help      : Display this help message.
     history   : Show the history of calculations.
