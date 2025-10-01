@@ -570,3 +570,31 @@ def test_calculation_str_parameterized(
 
     # Assert: Verify the string representation matches the expected format
     assert calc_str == expected_str
+def test_modulus_calculation_execute():
+    """
+    Test ModulusCalculation execute method with valid inputs.
+    """
+    # Arrange
+    calc = ModulusCalculation(10, 3)
+
+    # Act
+    result = calc.execute()
+
+    # Assert
+    assert result == 1.0, f"Expected 10 % 3 = 1.0, got {result}"
+
+from app.calculation import ModulusCalculation
+def test_modulus_calculation_zero_divisor():
+    """
+    Test ModulusCalculation execute method with zero divisor.
+    
+    This test ensures that attempting modulus by zero raises ZeroDivisionError.
+    """
+    # Arrange
+    calc = ModulusCalculation(10, 0)
+
+    # Act & Assert
+    with pytest.raises(ZeroDivisionError) as exc_info:
+        calc.execute()
+
+    assert str(exc_info.value) == "Cannot perform modulus by zero."
